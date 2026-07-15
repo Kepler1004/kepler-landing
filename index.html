@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kepler Academy — Malaysian Curriculum (KSSR & KSSM)</title>
+<meta name="description" content="Master the KSSR & KSSM syllabus with experienced teachers. Outstanding results in UASA, SPM & STPM. Book a free academic review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#060f24;
+    --ink:#0b1c3f;
+    --ink-2:#12295a;
+    --kepler:#2a7bf0;
+    --kepler-2:#5aa0ff;
+    --gold:#f6b445;
+    --gold-soft:#fcd88c;
+    --paper:#f5f8fe;
+    --mist:#e9f1fd;
+    --card:#ffffff;
+    --text:#0c1b38;
+    --text-soft:#4d6088;
+    --line:#d8e3f6;
+    --on-dark:#e9f0ff;
+    --on-dark-soft:#a6bce4;
+    --radius:20px;
+    --maxw:1180px;
+    --display:'Space Grotesk','Inter','Noto Sans SC','Noto Sans KR',system-ui,sans-serif;
+    --body:'Inter','Noto Sans SC','Noto Sans KR',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--text);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.display{font-family:var(--display);line-height:1.1;letter-spacing:-0.02em;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--kepler);
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--kepler);opacity:.6}
+  .eyebrow.on-dark{color:var(--gold)}
+  .eyebrow.on-dark::before{background:var(--gold)}
+  .sec{padding:96px 0}
+  .sec-head{max-width:720px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:16px 0 0}
+  .sec-head p{margin-top:18px;color:var(--text-soft);font-size:1.06rem}
+  .muted{color:var(--text-soft)}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--body);font-weight:600;font-size:.98rem;
+    padding:14px 24px;border-radius:999px;border:1px solid transparent;
+    cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    white-space:nowrap;
+  }
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn-wa{background:var(--gold);color:#3a2600;box-shadow:0 10px 24px -8px rgba(246,180,69,.7)}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 30px -8px rgba(246,180,69,.8)}
+  .btn-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.28)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .btn-outline{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-outline:hover{border-color:var(--kepler);color:var(--kepler)}
+
+  /* ---------- Nav ---------- */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(6,15,36,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-inner{display:flex;align-items:center;gap:22px;height:70px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--on-dark);font-family:var(--display);font-weight:700;font-size:1.22rem;letter-spacing:-.01em}
+  .brand .mark{width:34px;height:34px;flex:none}
+  .nav-links{display:flex;gap:26px;margin-left:14px}
+  .nav-links a{color:var(--on-dark-soft);font-size:.92rem;font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:var(--on-dark)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .langsw{display:flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px}
+  .langsw button{
+    border:0;background:transparent;color:var(--on-dark-soft);
+    font-family:var(--body);font-size:.82rem;font-weight:600;
+    padding:6px 12px;border-radius:999px;cursor:pointer;transition:.15s;
+  }
+  .langsw button.active{background:var(--kepler);color:#fff}
+  .nav-cta{display:inline-flex}
+  .hamb{display:none;background:none;border:0;cursor:pointer;padding:6px;margin-left:4px}
+  .hamb span{display:block;width:24px;height:2px;background:var(--on-dark);margin:5px 0;transition:.25s;border-radius:2px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:radial-gradient(120% 130% at 78% 8%,#123a7e 0%,var(--ink) 42%,var(--night) 100%);color:var(--on-dark);overflow:hidden;padding:88px 0 96px}
+  .stars{position:absolute;inset:0;pointer-events:none}
+  .stars i{position:absolute;background:#fff;border-radius:50%;opacity:.5;animation:tw 4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.2}50%{opacity:.9}}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,5.3vw,4rem);font-weight:700;margin:22px 0 0}
+  .hero h1 .hl{color:var(--gold)}
+  .hero .sub{margin-top:22px;font-size:1.12rem;color:var(--on-dark-soft);max-width:34em}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .trust{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap}
+  .trust .chip{display:flex;align-items:center;gap:9px;font-size:.86rem;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:9px 15px;border-radius:12px}
+  .trust .chip svg{width:16px;height:16px;color:var(--gold);flex:none}
+
+  /* Orbit visual */
+  .orbit{position:relative;aspect-ratio:1/1;width:100%;max-width:420px;margin-left:auto}
+  .orbit svg{width:100%;height:100%;overflow:visible}
+  .orbit .core{filter:drop-shadow(0 0 24px rgba(246,180,69,.55))}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .orbit .ring-rot{transform-origin:center;animation:spin 26s linear infinite}
+  .orbit .ring-rot.slow{animation-duration:44s;animation-direction:reverse}
+
+  /* ---------- Empathy ---------- */
+  .empathy{background:var(--paper)}
+  .empathy-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .empathy-copy h2{font-size:clamp(1.8rem,3.6vw,2.7rem)}
+  .empathy-copy .need{margin-top:22px;padding:18px 22px;background:var(--mist);border-left:3px solid var(--kepler);border-radius:0 12px 12px 0;color:var(--text-soft);font-size:1rem}
+  .empathy-copy .msg{margin-top:24px;font-size:1.08rem;color:var(--text)}
+  .photo-slot{
+    aspect-ratio:4/3;border-radius:var(--radius);
+    background:linear-gradient(135deg,var(--ink) 0%,var(--kepler) 130%);
+    color:var(--on-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    text-align:center;padding:24px;position:relative;overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .photo-slot .tag{font-family:var(--display);font-weight:600;font-size:1.05rem}
+  .photo-slot small{color:var(--on-dark-soft);font-size:.82rem;max-width:24em}
+  .photo-slot svg{width:38px;height:38px;color:var(--gold);opacity:.9}
+
+  /* ---------- Curriculum ---------- */
+  .curriculum{background:linear-gradient(180deg,var(--night),var(--ink));color:var(--on-dark)}
+  .curriculum .sec-head h2{color:#fff}
+  .curriculum .sec-head p{color:var(--on-dark-soft)}
+  .traj{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;margin-top:20px}
+  .traj::before{content:"";position:absolute;left:5%;right:5%;top:38px;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 8px,transparent 8px 16px)}
+  .stage{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 20px}
+  .stage .node{width:34px;height:34px;border-radius:50%;background:var(--ink);border:2px solid var(--kepler-2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--kepler-2);position:relative;z-index:2;margin-bottom:16px}
+  .stage.dest .node{background:var(--gold);border-color:var(--gold);color:#3a2600}
+  .stage.dest{background:linear-gradient(160deg,rgba(246,180,69,.16),rgba(246,180,69,.04));border-color:rgba(246,180,69,.4)}
+  .stage h4{font-size:1.04rem;color:#fff;margin-bottom:4px}
+  .stage .lvl{font-size:.8rem;color:var(--kepler-2);font-weight:600;margin-bottom:12px}
+  .stage.dest .lvl{color:var(--gold)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chips span{font-size:.76rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:4px 9px;border-radius:8px;color:var(--on-dark)}
+  .stage.dest .dest-note{font-size:.86rem;color:var(--on-dark-soft)}
+  .method{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .method .m{display:flex;gap:18px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px}
+  .method .big{font-family:var(--display);font-weight:700;font-size:2.6rem;color:var(--gold);line-height:1;flex:none}
+  .method .m .ic{width:52px;height:52px;flex:none;border-radius:14px;background:rgba(42,123,240,.18);display:flex;align-items:center;justify-content:center}
+  .method .m .ic svg{width:26px;height:26px;color:var(--kepler-2)}
+  .method h4{color:#fff;font-size:1.08rem;margin-bottom:6px}
+  .method p{color:var(--on-dark-soft);font-size:.94rem}
+
+  /* ---------- Strengths ---------- */
+  .strengths{background:var(--paper)}
+  .str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .str-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:transform .2s,box-shadow .2s}
+  .str-card:hover{transform:translateY(-4px);box-shadow:0 24px 44px -22px rgba(12,27,56,.35)}
+  .str-card .ic{width:54px;height:54px;border-radius:15px;background:linear-gradient(140deg,var(--kepler),var(--kepler-2));display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .str-card .ic svg{width:27px;height:27px;color:#fff}
+  .str-card h3{font-size:1.22rem;margin-bottom:10px}
+  .str-card p{color:var(--text-soft);font-size:.97rem}
+
+  /* ---------- Instructor ---------- */
+  .instructor{background:var(--mist)}
+  .inst-card{display:grid;grid-template-columns:.9fr 1.4fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+  .inst-left{background:linear-gradient(160deg,var(--ink),var(--night));color:var(--on-dark);padding:44px 36px;display:flex;flex-direction:column;justify-content:center}
+  .avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(140deg,var(--kepler),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:2rem;color:#fff;margin-bottom:22px}
+  .inst-left h3{font-size:1.5rem;color:#fff}
+  .inst-left .role{color:var(--gold);font-weight:600;margin-top:6px;font-size:.98rem}
+  .inst-left .subj{color:var(--on-dark-soft);font-size:.9rem;margin-top:18px}
+  .inst-right{padding:44px 40px}
+  .cred-list{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+  .cred-list .cred{display:flex;gap:12px;align-items:flex-start;font-size:.96rem;color:var(--text)}
+  .cred-list .cred svg{width:20px;height:20px;color:var(--kepler);flex:none;margin-top:2px}
+  .pullquote{border-left:3px solid var(--gold);padding-left:20px;font-family:var(--display);font-size:1.18rem;font-weight:500;color:var(--ink);line-height:1.4}
+  .pullquote .after{display:block;margin-top:12px;font-family:var(--body);font-size:.92rem;font-weight:400;color:var(--text-soft);line-height:1.6}
+
+  /* ---------- Results ---------- */
+  .results{background:var(--paper)}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .res-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;position:relative}
+  .res-card .quote-mark{font-family:var(--display);font-size:3.4rem;line-height:.6;color:var(--kepler);opacity:.22;position:absolute;top:22px;right:26px}
+  .res-card h3{font-size:1.24rem;margin-bottom:12px}
+  .res-card p{color:var(--text-soft);font-size:1rem}
+  .res-card .who{margin-top:18px;font-weight:600;color:var(--ink);font-size:.92rem;display:flex;align-items:center;gap:9px}
+  .res-card .who::before{content:"";width:26px;height:26px;border-radius:50%;background:linear-gradient(140deg,var(--kepler),var(--gold));flex:none}
+  .grade{margin-top:20px;display:flex;align-items:center;gap:14px}
+  .grade .g{text-align:center}
+  .grade .g .n{font-family:var(--display);font-weight:700;font-size:1.7rem}
+  .grade .g.from .n{color:var(--text-soft)}
+  .grade .g.to .n{color:#12a15a}
+  .grade .g small{font-size:.72rem;color:var(--text-soft);letter-spacing:.06em;text-transform:uppercase}
+  .grade .arrow{flex:1;height:3px;background:linear-gradient(90deg,var(--line),#12a15a);border-radius:2px;position:relative}
+  .grade .arrow::after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border-left:9px solid #12a15a;border-top:6px solid transparent;border-bottom:6px solid transparent}
+
+  /* ---------- Korean Camp ---------- */
+  .camp{background:linear-gradient(150deg,var(--night) 0%,#1a1140 55%,#3a1d52 100%);color:var(--on-dark);position:relative;overflow:hidden}
+  .camp .badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#3a2600;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 15px;border-radius:999px}
+  .camp-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:2}
+  .camp h2{font-size:clamp(1.9rem,4vw,2.9rem);color:#fff;margin:20px 0 0}
+  .camp h2 .kr{color:var(--gold);font-family:var(--display)}
+  .camp .lead{margin-top:20px;color:var(--on-dark-soft);font-size:1.06rem}
+  .camp .details{margin-top:22px;font-size:.9rem;color:var(--gold-soft);font-weight:500}
+  .camp .btn-wrap{margin-top:30px}
+  .camp-feats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .feat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 20px}
+  .feat .ic{width:44px;height:44px;border-radius:12px;background:rgba(246,180,69,.16);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .feat .ic svg{width:22px;height:22px;color:var(--gold)}
+  .feat h4{color:#fff;font-size:1rem}
+  .hangul-bg{position:absolute;inset:0;font-family:var(--display);font-weight:700;color:rgba(255,255,255,.03);font-size:20rem;line-height:1;pointer-events:none;user-select:none;z-index:1;display:flex;align-items:center;justify-content:flex-end;padding-right:4%}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--paper)}
+  .faq-list{max-width:820px;margin:0 auto}
+  .qa{border-bottom:1px solid var(--line)}
+  .qa button{width:100%;background:none;border:0;cursor:pointer;text-align:left;padding:24px 44px 24px 0;font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--ink);position:relative;display:block}
+  .qa button::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:1.6rem;font-weight:400;color:var(--kepler);transition:transform .25s;font-family:var(--body)}
+  .qa.open button::after{transform:translateY(-50%) rotate(45deg)}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .qa .ans p{padding:0 0 24px;color:var(--text-soft);font-size:1rem}
+
+  /* ---------- Final CTA ---------- */
+  .finalcta{background:radial-gradient(120% 140% at 20% 0%,#123a7e,var(--ink) 55%,var(--night));color:var(--on-dark);text-align:center}
+  .finalcta h2{font-size:clamp(2rem,4.4vw,3.1rem);color:#fff;max-width:16em;margin:0 auto}
+  .finalcta p{margin:22px auto 0;max-width:38em;color:var(--on-dark-soft);font-size:1.1rem}
+  .finalcta .btn{margin-top:34px;font-size:1.05rem;padding:16px 30px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--night);color:var(--on-dark-soft);padding:56px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand{margin-bottom:16px}
+  footer p.desc{font-size:.92rem;max-width:26em}
+  .foot-col h5{color:#fff;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+  .foot-col a{display:block;color:var(--on-dark-soft);font-size:.92rem;margin-bottom:10px;transition:color .15s}
+  .foot-col a:hover{color:#fff}
+  .foot-bot{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem}
+
+  /* ---------- Floating WA ---------- */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:70;width:58px;height:58px;border-radius:50%;background:#25d366;box-shadow:0 12px 28px -8px rgba(37,211,102,.7);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;color:#fff}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:940px){
+    .nav-links,.nav-cta{display:none}
+    .hamb{display:block}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .orbit{max-width:320px;margin:0 auto;order:-1}
+    .empathy-grid,.camp-grid{grid-template-columns:1fr;gap:36px}
+    .traj{grid-template-columns:1fr 1fr}
+    .traj::before{display:none}
+    .method,.str-grid,.res-grid,.camp-feats{grid-template-columns:1fr}
+    .inst-card{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr;gap:28px}
+    .sec{padding:72px 0}
+    /* mobile slide menu */
+    .mobile-menu{position:fixed;inset:70px 0 auto 0;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1);transform:translateY(-120%);transition:transform .3s ease;z-index:55;padding:18px 24px 26px}
+    .mobile-menu.open{transform:none}
+    .mobile-menu a{display:block;color:var(--on-dark);padding:12px 0;font-size:1.02rem;border-bottom:1px solid rgba(255,255,255,.07)}
+    .mobile-menu .btn{margin-top:16px;width:100%;justify-content:center}
+  }
+  @media(min-width:941px){.mobile-menu{display:none}}
+  @media(max-width:560px){
+    .wrap{padding:0 18px}
+    .traj{grid-template-columns:1fr}
+    .hero-cta .btn,.camp .btn{width:100%;justify-content:center}
+    .grade .g .n{font-size:1.4rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#5aa0ff" stroke-width="1.4" opacity=".5"/>
+        <ellipse cx="20" cy="20" rx="18" ry="7.5" stroke="#f6b445" stroke-width="1.4" opacity=".8"/>
+        <circle cx="20" cy="20" r="5.5" fill="#f6b445"/>
+        <circle cx="35" cy="16" r="2.4" fill="#5aa0ff"/>
+      </svg>
+      Kepler Academy
+    </a>
+    <nav class="nav-links">
+      <a href="#empathy" data-i18n="nav.why">Why Kepler</a>
+      <a href="#curriculum" data-i18n="nav.curriculum">Curriculum</a>
+      <a href="#strengths" data-i18n="nav.strengths">Strengths</a>
+      <a href="#instructor" data-i18n="nav.teachers">Teachers</a>
+      <a href="#results" data-i18n="nav.results">Results</a>
+      <a href="#camp" data-i18n="nav.camp">Korean Camp</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="langsw" role="group" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="ms">BM</button>
+        <button data-lang="zh">中文</button>
+      </div>
+      <a class="btn btn-wa nav-cta" data-wa="review"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg><span data-wa-label="review">Free review</span></a>
+      <button class="hamb" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="#empathy" data-i18n="nav.why">Why Kepler</a>
+    <a href="#curriculum" data-i18n="nav.curriculum">Curriculum</a>
+    <a href="#strengths" data-i18n="nav.strengths">Strengths</a>
+    <a href="#instructor" data-i18n="nav.teachers">Teachers</a>
+    <a href="#results" data-i18n="nav.results">Results</a>
+    <a href="#camp" data-i18n="nav.camp">Korean Camp</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a class="btn btn-wa" data-wa="review"><span data-wa-label="review">Free review</span></a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow on-dark" data-i18n="hero.eyebrow">Malaysian Curriculum · KSSR & KSSM</span>
+      <h1 data-i18n-html="hero.headline">Unlocking top-tier academic excellence and a <span class="hl">seamless journey</span> to higher education.</h1>
+      <p class="sub" data-i18n="hero.sub">Master the KSSR & KSSM syllabus with experienced, professional teachers. Build exam confidence and achieve outstanding results in UASA, SPM & STPM.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa" data-wa="review"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg><span data-i18n="hero.cta1">Book my free academic review</span></a>
+        <a class="btn btn-ghost" href="#curriculum" data-i18n="hero.cta2">Explore the programme</a>
+      </div>
+      <div class="trust">
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg><span data-i18n="hero.stat1">Max 8 students per class</span></div>
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg><span data-i18n="hero.stat2">KSSR · KSSM · STPM aligned</span></div>
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><span data-i18n="hero.stat3">MOE-aligned syllabus</span></div>
+      </div>
+    </div>
+    <div class="orbit" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f6b445"/><stop offset="100%" stop-color="#f6b445" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g class="ring-rot">
+          <ellipse cx="200" cy="200" rx="185" ry="185" fill="none" stroke="#5aa0ff" stroke-opacity=".25" stroke-width="1"/>
+          <circle cx="200" cy="15" r="4" fill="#5aa0ff"/>
+        </g>
+        <g class="ring-rot slow">
+          <ellipse cx="200" cy="200" rx="140" ry="140" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="1" stroke-dasharray="3 7"/>
+          <circle cx="340" cy="200" r="3.5" fill="#ffffff" fill-opacity=".7"/>
+        </g>
+        <ellipse cx="200" cy="200" rx="95" ry="95" fill="none" stroke="#f6b445" stroke-opacity=".4" stroke-width="1.4"/>
+        <circle cx="200" cy="200" r="120" fill="url(#glow)" opacity=".5"/>
+        <circle class="core" cx="200" cy="200" r="46" fill="#0b1c3f" stroke="#f6b445" stroke-width="2"/>
+        <text x="200" y="193" text-anchor="middle" fill="#f6b445" font-family="Space Grotesk" font-weight="700" font-size="30">A+</text>
+        <text x="200" y="216" text-anchor="middle" fill="#a6bce4" font-family="Inter" font-size="11" letter-spacing="1">SPM · STPM</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EMPATHY ================= -->
+<section class="sec empathy" id="empathy">
+  <div class="wrap empathy-grid">
+    <div class="empathy-copy reveal">
+      <span class="eyebrow" data-i18n="empathy.eyebrow">Why families choose Kepler</span>
+      <h2 data-i18n="empathy.heading">From “studying for exams” to “mastering for life”.</h2>
+      <div class="need" data-i18n="empathy.need">A smooth entry into the KSSR/KSSM system — with a deep, unshakeable understanding of the syllabus that delivers top exam performance, without the stress of burnout.</div>
+      <p class="msg" data-i18n="empathy.msg">At Kepler Academy, our students don't just memorise the syllabus; they grasp the “why” behind every concept. The result is verified progress, visible confidence in the classroom, and a genuine love for learning that goes far beyond report-card grades.</p>
+    </div>
+    <div class="photo-slot reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <span class="tag" data-i18n="photo.title">Your students, front & centre</span>
+      <small data-i18n="photo.note">Drop a real Kepler photo here — e.g. students holding their result certificates from the content guide.</small>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CURRICULUM ================= -->
+<section class="sec curriculum" id="curriculum">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow on-dark" data-i18n="curr.eyebrow">The programme</span>
+      <h2 data-i18n="curr.heading">A curriculum built on the official KSSR & KSSM framework.</h2>
+      <p data-i18n="curr.overview">Fully aligned with the KSSR/KSSM curriculum set by Kementerian Pendidikan Malaysia (MOE). We focus on Higher Order Thinking Skills (HOTS) so students excel in modern exam formats that reward application and analysis — not rote memorisation.</p>
+    </div>
+
+    <div class="traj reveal" id="traj"><!-- stages injected --></div>
+
+    <div class="method reveal">
+      <div class="m">
+        <div class="big">8</div>
+        <div>
+          <h4 data-i18n="method.m1t">Intensive small-group learning</h4>
+          <p data-i18n="method.m1d">A maximum of 8 students per class ensures every child gets targeted teacher attention.</p>
+        </div>
+      </div>
+      <div class="m">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <div>
+          <h4 data-i18n="method.m2t">Flipped classroom</h4>
+          <p data-i18n="method.m2d">Students meet new material before class via the Pandai app, then work through problems with the teacher's guidance in class.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STRENGTHS ================= -->
+<section class="sec strengths" id="strengths">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="str.eyebrow">Competitive advantage</span>
+      <h2 data-i18n="str.heading">What makes Kepler different.</h2>
+    </div>
+    <div class="str-grid">
+      <div class="str-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 data-i18n="str.s1t">Rigorous KSSR/KSSM exam simulators</h3>
+        <p data-i18n="str.s1d">A proprietary question bank engineered to mimic the trickiest SPM/STPM formats. Students practise under timed conditions to build speed and accuracy.</p>
+      </div>
+      <div class="str-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="12" y="6" width="3" height="12"/><rect x="17" y="13" width="3" height="5"/></svg></div>
+        <h3 data-i18n="str.s2t">Individualised growth tracking</h3>
+        <p data-i18n="str.s2d">We don't just teach — we track. Parents receive a weekly Progress Snapshot detailing the exact HOTS skills mastered and the areas that need reinforcement.</p>
+      </div>
+      <div class="str-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3 data-i18n="str.s3t">Classroom confidence teaching</h3>
+        <p data-i18n="str.s3d">We bridge the gap between knowing the answer and having the confidence to raise your hand. Students build presentation skills and active participation so they're noticed and praised in their mainstream school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTRUCTOR ================= -->
+<section class="sec instructor" id="instructor">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="inst.eyebrow">Meet the team</span>
+      <h2 data-i18n="inst.heading">Learn from specialists who've been there.</h2>
+    </div>
+    <div class="inst-card reveal">
+      <div class="inst-left">
+        <div class="avatar">CR</div>
+        <h3>Cikgu Rajesh</h3>
+        <div class="role" data-i18n="inst.role">Lead Biology &amp; Chemistry Specialist</div>
+        <div class="subj" data-i18n="inst.subjects">Biology &amp; Chemistry (SPM &amp; STPM) · Mathematics (Primary to STPM)</div>
+      </div>
+      <div class="inst-right">
+        <div class="cred-list">
+          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span data-i18n="inst.c1">MSc in Molecular Biology (UMS)</span></div>
+          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span data-i18n="inst.c2">BSc in Industrial Chemistry (UMS)</span></div>
+          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg><span data-i18n="inst.c3">Top 1st Highest Achiever, MSc — 2023 UMS Postgraduate Awards</span></div>
+        </div>
+        <blockquote class="pullquote">
+          <span data-i18n="inst.quote">“I believe every child is a ‘STEM person’. They just need the right story and the right strategy to unlock it.”</span>
+          <span class="after" data-i18n="inst.quoteAfter">Known for turning ‘STEM anxiety’ into STEM enthusiasm through real-world examples.</span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section class="sec results" id="results">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="res.eyebrow">Proof &amp; trust</span>
+      <h2 data-i18n="res.heading">Verified results. Real confidence.</h2>
+    </div>
+    <div class="res-grid">
+      <div class="res-card reveal">
+        <span class="quote-mark">”</span>
+        <h3 data-i18n="res.t1t">From “average” to “Top 3 in class”.</h3>
+        <p data-i18n="res.t1d">After struggling with Physics, Sarah jumped from 65% (C) to 88% (A) in just three months by shifting focus to practical application.</p>
+        <div class="grade">
+          <div class="g from"><div class="n">65%</div><small data-i18n="res.before">Before · C</small></div>
+          <div class="arrow"></div>
+          <div class="g to"><div class="n">88%</div><small data-i18n="res.after">After · A</small></div>
+        </div>
+        <div class="who" data-i18n="res.t1w">Student Sarah, Form 3</div>
+      </div>
+      <div class="res-card reveal">
+        <span class="quote-mark">”</span>
+        <p data-i18n="res.t2d">“Kepler didn't just help with the syllabus — they gave my son the confidence to speak up in class. His form teacher actually called to ask what we'd changed at home!”</p>
+        <div class="who" data-i18n="res.t2w">Parent of Student Lee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KOREAN CAMP ================= -->
+<section class="sec camp" id="camp">
+  <div class="hangul-bg" aria-hidden="true">한글</div>
+  <div class="wrap camp-grid">
+    <div class="reveal">
+      <span class="badge" data-i18n="camp.badge">Holiday special</span>
+      <h2 data-i18n-html="camp.heading">Kepler <span class="kr">Korean Language</span> Camp</h2>
+      <p class="lead" data-i18n="camp.lead">Every school holiday, Kepler opens the door to a brand-new world. Our Korean Language Camp gives students a fun, immersive introduction to Hangul, everyday conversation, and Korean pop culture — no experience needed.</p>
+      <p class="details" data-i18n="camp.details">Runs during the school holidays · Beginner-friendly · Ages 10+ · Certificate on completion</p>
+      <div class="btn-wrap">
+        <a class="btn btn-wa" data-wa="camp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23Z"/></svg><span data-i18n="camp.cta">Reserve a camp seat</span></a>
+      </div>
+    </div>
+    <div class="camp-feats">
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h4 data-i18n="camp.f1">Read &amp; write Hangul in days</h4>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h4 data-i18n="camp.f2">Survival Korean conversation</h4>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h4 data-i18n="camp.f3">Culture through K-pop &amp; K-drama</h4>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h4 data-i18n="camp.f4">Small groups, native-style coaching</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin:0 auto 44px;text-align:center">
+      <span class="eyebrow" style="justify-content:center" data-i18n="faq.eyebrow">Frequently asked questions</span>
+      <h2 data-i18n="faq.heading">Good questions, straight answers.</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList"><!-- injected --></div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="sec finalcta" id="cta">
+  <div class="wrap reveal">
+    <h2 data-i18n="final.heading">Take the first step towards your child's academic brilliance.</h2>
+    <p data-i18n="final.body">Don't wait for the next exam to realise a different approach is needed. Start building their confidence today.</p>
+    <a class="btn btn-wa" data-wa="review"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23Z"/></svg><span data-i18n="final.button">Book my free academic review</span></a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#5aa0ff" stroke-width="1.4" opacity=".5"/>
+            <ellipse cx="20" cy="20" rx="18" ry="7.5" stroke="#f6b445" stroke-width="1.4" opacity=".8"/>
+            <circle cx="20" cy="20" r="5.5" fill="#f6b445"/>
+          </svg>
+          Kepler Academy
+        </div>
+        <p class="desc" data-i18n="foot.desc">Malaysian Curriculum tuition — KSSR, KSSM & STPM. Turning “studying for exams” into “mastering for life”.</p>
+      </div>
+      <div class="foot-col">
+        <h5 data-i18n="foot.explore">Explore</h5>
+        <a href="#curriculum" data-i18n="nav.curriculum">Curriculum</a>
+        <a href="#strengths" data-i18n="nav.strengths">Strengths</a>
+        <a href="#camp" data-i18n="nav.camp">Korean Camp</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5 data-i18n="foot.contact">Contact</h5>
+        <a data-wa="review" data-i18n="foot.wa">Chat on WhatsApp</a>
+        <a href="#" data-i18n="foot.addr">📍 Add your address</a>
+        <a href="#" data-i18n="foot.phone">📞 Add your phone</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr"></span> Kepler Academy. <span data-i18n="foot.rights">All rights reserved.</span></span>
+      <span data-i18n="foot.tag">Malaysian Curriculum · KSSR &amp; KSSM</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="review" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+</a>
+
+<script>
+/* =========================================================
+   CONFIG — replace with Kepler's real WhatsApp number.
+   International format, digits only, no "+" or spaces.
+   e.g. Malaysia 011-1234 5678  ->  "60111234 5678" -> "601112345678"
+   ========================================================= */
+const WHATSAPP_NUMBER = "60198153659";
+
+/* ---- Translations ---- */
+const T = {
+  en:{
+    "nav.why":"Why Kepler","nav.curriculum":"Curriculum","nav.strengths":"Strengths","nav.teachers":"Teachers","nav.results":"Results","nav.camp":"Korean Camp","nav.faq":"FAQ",
+    "hero.eyebrow":"Malaysian Curriculum · KSSR & KSSM",
+    "hero.headline":"Unlocking top-tier academic excellence and a <span class='hl'>seamless journey</span> to higher education.",
+    "hero.sub":"Master the KSSR & KSSM syllabus with experienced, professional teachers. Build exam confidence and achieve outstanding results in UASA, SPM & STPM.",
+    "hero.cta1":"Book my free academic review","hero.cta2":"Explore the programme",
+    "hero.stat1":"Max 8 students per class","hero.stat2":"KSSR · KSSM · STPM aligned","hero.stat3":"MOE-aligned syllabus",
+    "empathy.eyebrow":"Why families choose Kepler",
+    "empathy.heading":"From “studying for exams” to “mastering for life”.",
+    "empathy.need":"A smooth entry into the KSSR/KSSM system — with a deep, unshakeable understanding of the syllabus that delivers top exam performance, without the stress of burnout.",
+    "empathy.msg":"At Kepler Academy, our students don't just memorise the syllabus; they grasp the “why” behind every concept. The result is verified progress, visible confidence in the classroom, and a genuine love for learning that goes far beyond report-card grades.",
+    "photo.title":"Your students, front & centre","photo.note":"Drop a real Kepler photo here — e.g. students holding their result certificates from the content guide.",
+    "curr.eyebrow":"The programme","curr.heading":"A curriculum built on the official KSSR & KSSM framework.",
+    "curr.overview":"Fully aligned with the KSSR/KSSM curriculum set by Kementerian Pendidikan Malaysia (MOE). We focus on Higher Order Thinking Skills (HOTS) so students excel in modern exam formats that reward application and analysis — not rote memorisation.",
+    "method.m1t":"Intensive small-group learning","method.m1d":"A maximum of 8 students per class ensures every child gets targeted teacher attention.",
+    "method.m2t":"Flipped classroom","method.m2d":"Students meet new material before class via the Pandai app, then work through problems with the teacher's guidance in class.",
+    "str.eyebrow":"Competitive advantage","str.heading":"What makes Kepler different.",
+    "str.s1t":"Rigorous KSSR/KSSM exam simulators","str.s1d":"A proprietary question bank engineered to mimic the trickiest SPM/STPM formats. Students practise under timed conditions to build speed and accuracy.",
+    "str.s2t":"Individualised growth tracking","str.s2d":"We don't just teach — we track. Parents receive a weekly Progress Snapshot detailing the exact HOTS skills mastered and the areas that need reinforcement.",
+    "str.s3t":"Classroom confidence teaching","str.s3d":"We bridge the gap between knowing the answer and having the confidence to raise your hand. Students build presentation skills and active participation so they're noticed and praised in their mainstream school.",
+    "inst.eyebrow":"Meet the team","inst.heading":"Learn from specialists who've been there.",
+    "inst.role":"Lead Biology & Chemistry Specialist","inst.subjects":"Biology & Chemistry (SPM & STPM) · Mathematics (Primary to STPM)",
+    "inst.c1":"MSc in Molecular Biology (UMS)","inst.c2":"BSc in Industrial Chemistry (UMS)","inst.c3":"Top 1st Highest Achiever, MSc — 2023 UMS Postgraduate Awards",
+    "inst.quote":"“I believe every child is a ‘STEM person’. They just need the right story and the right strategy to unlock it.”",
+    "inst.quoteAfter":"Known for turning ‘STEM anxiety’ into STEM enthusiasm through real-world examples.",
+    "res.eyebrow":"Proof & trust","res.heading":"Verified results. Real confidence.",
+    "res.t1t":"From “average” to “Top 3 in class”.","res.t1d":"After struggling with Physics, Sarah jumped from 65% (C) to 88% (A) in just three months by shifting focus to practical application.",
+    "res.before":"Before · C","res.after":"After · A","res.t1w":"Student Sarah, Form 3",
+    "res.t2d":"“Kepler didn't just help with the syllabus — they gave my son the confidence to speak up in class. His form teacher actually called to ask what we'd changed at home!”","res.t2w":"Parent of Student Lee",
+    "camp.badge":"Holiday special","camp.heading":"Kepler <span class='kr'>Korean Language</span> Camp",
+    "camp.lead":"Every school holiday, Kepler opens the door to a brand-new world. Our Korean Language Camp gives students a fun, immersive introduction to Hangul, everyday conversation, and Korean pop culture — no experience needed.",
+    "camp.details":"Runs during the school holidays · Beginner-friendly · Ages 10+ · Certificate on completion","camp.cta":"Reserve a camp seat",
+    "camp.f1":"Read & write Hangul in days","camp.f2":"Survival Korean conversation","camp.f3":"Culture through K-pop & K-drama","camp.f4":"Small groups, native-style coaching",
+    "faq.eyebrow":"Frequently asked questions","faq.heading":"Good questions, straight answers.",
+    "final.heading":"Take the first step towards your child's academic brilliance.","final.body":"Don't wait for the next exam to realise a different approach is needed. Start building their confidence today.","final.button":"Book my free academic review",
+    "foot.desc":"Malaysian Curriculum tuition — KSSR, KSSM & STPM. Turning “studying for exams” into “mastering for life”.",
+    "foot.explore":"Explore","foot.contact":"Contact","foot.wa":"Chat on WhatsApp","foot.addr":"📍 Add your address","foot.phone":"📞 Add your phone","foot.rights":"All rights reserved.","foot.tag":"Malaysian Curriculum · KSSR & KSSM",
+    stages:[
+      {node:"01",lvl:"Primary · Years 4–6",title:"Foundations",subs:["English","Mathematics","Science"]},
+      {node:"02",lvl:"Secondary · Form 3–5",title:"Building depth",subs:["English","Mathematics","Science","Add. Maths","Biology","Chemistry","Physics"]},
+      {node:"03",lvl:"Pre-University · Form 6",title:"Mastery",subs:["MUET","Pure Maths","Economics","Biology","Chemistry","Physics"]},
+      {node:"★",lvl:"Destination",title:"Higher Education",dest:true,note:"A confident, seamless entry into university."}
+    ],
+    faqs:[
+      {q:"Is the class schedule flexible?",a:"We understand the demands of co-curricular activities (sukan, persatuan). Our small-group classes can be monitored through the Pandai app, and we offer flexible make-up sessions so your child never misses a lesson."},
+      {q:"Does this cover the latest syllabus changes (e.g. DSKP additions)?",a:"Absolutely. We constantly review and update our materials in line with the Ministry of Education's guidelines, keeping you two steps ahead of the latest exam trends."},
+      {q:"How do I get started?",a:"Tap any “Book my free academic review” button to chat with us instantly on WhatsApp. We'll understand your child's needs and recommend the right class."}
+    ],
+    wa:{review:"Hi Kepler Academy! I'd like to book a free academic review for my child (Malaysian Curriculum).",camp:"Hi Kepler Academy! I'm interested in the holiday Korean Language Camp."},
+    waLabel:{review:"Free review"}
+  },
+  ms:{
+    "nav.why":"Mengapa Kepler","nav.curriculum":"Kurikulum","nav.strengths":"Kelebihan","nav.teachers":"Guru","nav.results":"Keputusan","nav.camp":"Kem Korea","nav.faq":"Soalan Lazim",
+    "hero.eyebrow":"Kurikulum Malaysia · KSSR & KSSM",
+    "hero.headline":"Membuka kecemerlangan akademik terbaik dan <span class='hl'>perjalanan lancar</span> ke pengajian tinggi.",
+    "hero.sub":"Kuasai silibus KSSR & KSSM bersama guru berpengalaman dan profesional. Bina keyakinan peperiksaan dan capai keputusan cemerlang dalam UASA, SPM & STPM.",
+    "hero.cta1":"Tempah semakan akademik percuma","hero.cta2":"Terokai program",
+    "hero.stat1":"Maksimum 8 pelajar sekelas","hero.stat2":"Selari KSSR · KSSM · STPM","hero.stat3":"Silibus selari KPM",
+    "empathy.eyebrow":"Mengapa keluarga memilih Kepler",
+    "empathy.heading":"Daripada “belajar untuk peperiksaan” kepada “menguasai untuk kehidupan”.",
+    "empathy.need":"Kemasukan lancar ke sistem KSSR/KSSM — dengan kefahaman mendalam terhadap silibus yang menjamin prestasi peperiksaan terbaik, tanpa tekanan burnout.",
+    "empathy.msg":"Di Kepler Academy, pelajar kami bukan sekadar menghafal silibus; mereka memahami “mengapa” di sebalik setiap konsep. Hasilnya ialah kemajuan yang disahkan, keyakinan jelas di dalam kelas, dan minat sebenar terhadap pembelajaran yang jauh melangkaui markah kad laporan.",
+    "photo.title":"Pelajar anda, di barisan hadapan","photo.note":"Letak foto sebenar Kepler di sini — cth. pelajar memegang sijil keputusan daripada panduan kandungan.",
+    "curr.eyebrow":"Program","curr.heading":"Kurikulum dibina atas rangka rasmi KSSR & KSSM.",
+    "curr.overview":"Selari sepenuhnya dengan kurikulum KSSR/KSSM oleh Kementerian Pendidikan Malaysia (KPM). Kami menumpukan Kemahiran Berfikir Aras Tinggi (KBAT/HOTS) supaya pelajar cemerlang dalam format peperiksaan moden yang menuntut aplikasi dan analisis — bukan hafalan semata-mata.",
+    "method.m1t":"Pembelajaran kumpulan kecil","method.m1d":"Maksimum 8 pelajar sekelas memastikan setiap kanak-kanak mendapat perhatian guru yang fokus.",
+    "method.m2t":"Kelas terbalik (Flipped Classroom)","method.m2d":"Pelajar meneroka bahan baharu sebelum kelas melalui aplikasi Pandai, kemudian menyelesaikan latihan dengan bimbingan guru dalam kelas.",
+    "str.eyebrow":"Kelebihan bersaing","str.heading":"Apa yang membezakan Kepler.",
+    "str.s1t":"Simulator peperiksaan KSSR/KSSM yang ketat","str.s1d":"Bank soalan proprietari yang direka meniru format SPM/STPM paling mencabar. Pelajar berlatih dalam keadaan berjadual masa untuk membina kelajuan dan ketepatan.",
+    "str.s2t":"Penjejakan pertumbuhan individu","str.s2d":"Kami bukan sekadar mengajar — kami menjejak. Ibu bapa menerima ‘Progress Snapshot’ mingguan yang memperincikan kemahiran KBAT yang dikuasai dan bidang yang perlu diperkukuh.",
+    "str.s3t":"Pengajaran keyakinan bilik darjah","str.s3d":"Kami merapatkan jurang antara ‘tahu jawapan’ dan ‘berani angkat tangan’. Pelajar membina kemahiran pembentangan dan penyertaan aktif supaya diperhatikan dan dipuji di sekolah arus perdana.",
+    "inst.eyebrow":"Kenali pasukan","inst.heading":"Belajar daripada pakar yang berpengalaman.",
+    "inst.role":"Pakar Utama Biologi & Kimia","inst.subjects":"Biologi & Kimia (SPM & STPM) · Matematik (Rendah hingga STPM)",
+    "inst.c1":"MSc Biologi Molekul (UMS)","inst.c2":"BSc Kimia Industri (UMS)","inst.c3":"Pencapai Tertinggi Pertama, MSc — Anugerah Pascasiswazah UMS 2023",
+    "inst.quote":"“Saya percaya setiap kanak-kanak ialah ‘insan STEM’. Mereka hanya perlukan kisah dan strategi yang betul untuk membukanya.”",
+    "inst.quoteAfter":"Terkenal menukar ‘keresahan STEM’ kepada keghairahan STEM melalui contoh dunia sebenar.",
+    "res.eyebrow":"Bukti & kepercayaan","res.heading":"Keputusan disahkan. Keyakinan sebenar.",
+    "res.t1t":"Daripada “sederhana” kepada “Terbaik 3 dalam kelas”.","res.t1d":"Selepas bergelut dengan Fizik, Sarah melonjak daripada 65% (C) kepada 88% (A) dalam masa tiga bulan sahaja dengan menumpukan aplikasi praktikal.",
+    "res.before":"Sebelum · C","res.after":"Selepas · A","res.t1w":"Pelajar Sarah, Tingkatan 3",
+    "res.t2d":"“Kepler bukan sahaja membantu silibus — mereka memberi anak saya keyakinan untuk bersuara dalam kelas. Guru kelasnya menelefon untuk bertanya apa yang kami ubah di rumah!”","res.t2w":"Ibu bapa Pelajar Lee",
+    "camp.badge":"Istimewa cuti","camp.heading":"Kem <span class='kr'>Bahasa Korea</span> Kepler",
+    "camp.lead":"Setiap cuti sekolah, Kepler membuka pintu ke dunia baharu. Kem Bahasa Korea kami memberi pelajar pengenalan yang menyeronokkan kepada Hangul, perbualan harian dan budaya pop Korea — tanpa perlu pengalaman.",
+    "camp.details":"Berlangsung semasa cuti sekolah · Mesra pemula · Umur 10+ · Sijil tamat","camp.cta":"Tempah tempat kem",
+    "camp.f1":"Baca & tulis Hangul dalam beberapa hari","camp.f2":"Perbualan Korea asas","camp.f3":"Budaya menerusi K-pop & K-drama","camp.f4":"Kumpulan kecil, bimbingan gaya penutur asli",
+    "faq.eyebrow":"Soalan lazim","faq.heading":"Soalan bagus, jawapan jelas.",
+    "final.heading":"Ambil langkah pertama ke arah kecemerlangan akademik anak anda.","final.body":"Jangan tunggu peperiksaan seterusnya untuk sedar bahawa pendekatan berbeza diperlukan. Mula bina keyakinan mereka hari ini.","final.button":"Tempah semakan akademik percuma",
+    "foot.desc":"Tuisyen Kurikulum Malaysia — KSSR, KSSM & STPM. Menukar “belajar untuk peperiksaan” kepada “menguasai untuk kehidupan”.",
+    "foot.explore":"Terokai","foot.contact":"Hubungi","foot.wa":"Berbual di WhatsApp","foot.addr":"📍 Tambah alamat anda","foot.phone":"📞 Tambah nombor anda","foot.rights":"Hak cipta terpelihara.","foot.tag":"Kurikulum Malaysia · KSSR & KSSM",
+    stages:[
+      {node:"01",lvl:"Rendah · Tahun 4–6",title:"Asas kukuh",subs:["Bahasa Inggeris","Matematik","Sains"]},
+      {node:"02",lvl:"Menengah · Tingkatan 3–5",title:"Bina kedalaman",subs:["Bahasa Inggeris","Matematik","Sains","Matematik Tambahan","Biologi","Kimia","Fizik"]},
+      {node:"03",lvl:"Pra-Universiti · Tingkatan 6",title:"Penguasaan",subs:["MUET","Matematik Tulen","Ekonomi","Biologi","Kimia","Fizik"]},
+      {node:"★",lvl:"Destinasi",title:"Pengajian Tinggi",dest:true,note:"Kemasukan yang yakin dan lancar ke universiti."}
+    ],
+    faqs:[
+      {q:"Adakah jadual kelas fleksibel?",a:"Kami memahami tuntutan kokurikulum (sukan, persatuan). Kelas kumpulan kecil kami boleh dipantau melalui aplikasi Pandai, dan kami menawarkan sesi ganti fleksibel supaya anak anda tidak pernah terlepas pelajaran."},
+      {q:"Adakah ia meliputi perubahan silibus terkini (cth. tambahan DSKP)?",a:"Sudah tentu. Kami sentiasa menyemak dan mengemas kini bahan selari dengan garis panduan Kementerian Pendidikan, memastikan anda dua langkah di hadapan trend peperiksaan terkini."},
+      {q:"Bagaimana untuk bermula?",a:"Tekan mana-mana butang “Tempah semakan akademik percuma” untuk berbual segera dengan kami di WhatsApp. Kami akan memahami keperluan anak anda dan mencadangkan kelas yang sesuai."}
+    ],
+    wa:{review:"Hai Kepler Academy! Saya ingin menempah semakan akademik percuma untuk anak saya (Kurikulum Malaysia).",camp:"Hai Kepler Academy! Saya berminat dengan Kem Bahasa Korea semasa cuti."},
+    waLabel:{review:"Semakan percuma"}
+  },
+  zh:{
+    "nav.why":"为何选 Kepler","nav.curriculum":"课程","nav.strengths":"优势","nav.teachers":"师资","nav.results":"成果","nav.camp":"韩语营","nav.faq":"常见问题",
+    "hero.eyebrow":"马来西亚课程 · KSSR & KSSM",
+    "hero.headline":"开启顶尖学术卓越，铺就<span class='hl'>顺畅升学</span>之路。",
+    "hero.sub":"在经验丰富的专业教师指导下掌握 KSSR 与 KSSM 教学大纲，建立考试信心，在 UASA、SPM 与 STPM 中取得优异成绩。",
+    "hero.cta1":"预约免费学术评估","hero.cta2":"了解课程",
+    "hero.stat1":"每班最多 8 位学生","hero.stat2":"对接 KSSR · KSSM · STPM","hero.stat3":"对接教育部大纲",
+    "empathy.eyebrow":"家长为何选择 Kepler",
+    "empathy.heading":"从「为考试而学」到「为人生而精通」。",
+    "empathy.need":"顺利衔接 KSSR/KSSM 体系——对教学大纲有深入而稳固的理解，从而在考试中取得优异成绩，却不因压力而倦怠。",
+    "empathy.msg":"在 Kepler Academy，我们的学生不只是死记大纲；他们理解每个概念背后的「为什么」。由此带来可验证的进步、课堂上可见的自信，以及远超成绩单的、对学习的真正热爱。",
+    "photo.title":"让学生成为主角","photo.note":"在此放置 Kepler 的真实照片——例如内容指南中手持成绩证书的学生。",
+    "curr.eyebrow":"课程体系","curr.heading":"以官方 KSSR 与 KSSM 框架为基础的课程。",
+    "curr.overview":"完全对接马来西亚教育部（KPM）制定的 KSSR/KSSM 课程。我们注重高阶思维能力（HOTS），让学生在注重应用与分析、而非死记硬背的现代考试中脱颖而出。",
+    "method.m1t":"小组精学","method.m1d":"每班最多 8 人，确保每位学生都获得教师针对性的关注。",
+    "method.m2t":"翻转课堂","method.m2d":"学生课前通过 Pandai 应用预习新知识，课堂上在教师指导下完成练习。",
+    "str.eyebrow":"竞争优势","str.heading":"Kepler 的与众不同之处。",
+    "str.s1t":"严格的 KSSR/KSSM 模拟考","str.s1d":"自主研发的题库，模拟 SPM/STPM 最刁钻的题型。学生在限时条件下练习，提升速度与准确度。",
+    "str.s2t":"个性化成长追踪","str.s2d":"我们不只教学，更持续追踪。家长每周收到「进度快照」，详列已掌握的 HOTS 技能与需加强的部分。",
+    "str.s3t":"课堂自信培养","str.s3d":"我们弥合「知道答案」与「敢于举手」之间的差距。学生锻炼表达与主动参与，在主流学校里被看见、被称赞。",
+    "inst.eyebrow":"认识团队","inst.heading":"向经验丰富的专家学习。",
+    "inst.role":"生物与化学首席专师","inst.subjects":"生物与化学（SPM & STPM）· 数学（小学至 STPM）",
+    "inst.c1":"分子生物学硕士（UMS）","inst.c2":"工业化学学士（UMS）","inst.c3":"2023 UMS 研究生奖 硕士最高成就第一名",
+    "inst.quote":"「我相信每个孩子都是『STEM 人』。他们只需要合适的故事和策略去唤醒它。」",
+    "inst.quoteAfter":"擅长通过现实案例，把『STEM 焦虑』转化为 STEM 热情。",
+    "res.eyebrow":"实证与信任","res.heading":"经验证的成果。真实的自信。",
+    "res.t1t":"从「中等」到「班级前三」。","res.t1d":"在物理上苦苦挣扎后，Sarah 通过转向实际应用，仅用三个月便从 65%（C）跃升至 88%（A）。",
+    "res.before":"之前 · C","res.after":"之后 · A","res.t1w":"学生 Sarah，中三",
+    "res.t2d":"「Kepler 不只帮孩子应付大纲——更给了我儿子在课堂上开口的信心。他的班主任甚至打电话来问我们在家做了什么改变！」","res.t2w":"学生 Lee 的家长",
+    "camp.badge":"假期特别活动","camp.heading":"Kepler <span class='kr'>韩语</span>营",
+    "camp.lead":"每逢学校假期，Kepler 都会打开通往新世界的大门。我们的韩语营让学生轻松沉浸式地入门韩文字母、日常会话与韩国流行文化——零基础也能参加。",
+    "camp.details":"学校假期期间举行 · 适合零基础 · 10 岁以上 · 结业颁发证书","camp.cta":"预约韩语营名额",
+    "camp.f1":"几天学会读写韩文字母","camp.f2":"实用韩语会话","camp.f3":"透过 K-pop 与韩剧感受文化","camp.f4":"小班、母语式指导",
+    "faq.eyebrow":"常见问题","faq.heading":"好问题，直接回答。",
+    "final.heading":"迈出孩子学术卓越的第一步。","final.body":"别等到下一次考试才意识到需要不同的方法。今天就开始建立他们的信心。","final.button":"预约免费学术评估",
+    "foot.desc":"马来西亚课程补习——KSSR、KSSM 与 STPM。把「为考试而学」变成「为人生而精通」。",
+    "foot.explore":"探索","foot.contact":"联系","foot.wa":"在 WhatsApp 上沟通","foot.addr":"📍 添加你的地址","foot.phone":"📞 添加你的电话","foot.rights":"版权所有。","foot.tag":"马来西亚课程 · KSSR & KSSM",
+    stages:[
+      {node:"01",lvl:"小学 · 四至六年级",title:"打好基础",subs:["英文","数学","科学"]},
+      {node:"02",lvl:"中学 · 中三至中五",title:"深化学习",subs:["英文","数学","科学","附加数学","生物","化学","物理"]},
+      {node:"03",lvl:"大学先修 · 中六",title:"融会贯通",subs:["MUET","纯数学","经济","生物","化学","物理"]},
+      {node:"★",lvl:"目标",title:"升入高等教育",dest:true,note:"自信、顺畅地迈入大学。"}
+    ],
+    faqs:[
+      {q:"上课时间灵活吗？",a:"我们理解课外活动（体育、社团）的安排。我们的小组课程可通过 Pandai 应用监督，并提供灵活的补课安排，让孩子不错过任何一课。"},
+      {q:"课程是否涵盖最新的大纲变动（例如 DSKP 新增内容）？",a:"当然。我们持续依据教育部指南审阅并更新教材，让您始终领先最新考试趋势两步。"},
+      {q:"如何开始？",a:"点击任意「预约免费学术评估」按钮，即可在 WhatsApp 上与我们即时沟通。我们会了解孩子的需求，推荐合适的班级。"}
+    ],
+    wa:{review:"你好 Kepler Academy！我想为孩子预约一次免费学术评估（马来西亚课程）。",camp:"你好 Kepler Academy！我对假期韩语营很感兴趣。"},
+    waLabel:{review:"免费评估"}
+  }
+};
+
+let LANG = "en";
+
+function waLink(kind){
+  const msg = (T[LANG].wa && T[LANG].wa[kind]) || T.en.wa[kind];
+  return "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg);
+}
+
+function renderStages(){
+  const box = document.getElementById("traj");
+  box.innerHTML = T[LANG].stages.map(s=>`
+    <div class="stage ${s.dest?'dest':''}">
+      <div class="node">${s.node}</div>
+      <div class="lvl">${s.lvl}</div>
+      <h4>${s.title}</h4>
+      ${s.dest ? `<div class="dest-note">${s.note}</div>` : `<div class="chips">${s.subs.map(x=>`<span>${x}</span>`).join("")}</div>`}
+    </div>`).join("");
+}
+
+function renderFaqs(){
+  const box = document.getElementById("faqList");
+  box.innerHTML = T[LANG].faqs.map(f=>`
+    <div class="qa">
+      <button type="button" aria-expanded="false">${f.q}</button>
+      <div class="ans"><p>${f.a}</p></div>
+    </div>`).join("");
+  box.querySelectorAll(".qa button").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const qa = btn.parentElement;
+      const open = qa.classList.contains("open");
+      box.querySelectorAll(".qa").forEach(x=>{x.classList.remove("open");x.querySelector(".ans").style.maxHeight=null;x.querySelector("button").setAttribute("aria-expanded","false")});
+      if(!open){qa.classList.add("open");qa.querySelector(".ans").style.maxHeight=qa.querySelector(".ans").scrollHeight+"px";btn.setAttribute("aria-expanded","true")}
+    });
+  });
+}
+
+function applyLang(lang){
+  LANG = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(T[lang][k]!==undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-html");
+    if(T[lang][k]!==undefined) el.innerHTML = T[lang][k];
+  });
+  // WA labels (short button text in nav)
+  document.querySelectorAll("[data-wa-label]").forEach(el=>{
+    const k = el.getAttribute("data-wa-label");
+    if(T[lang].waLabel && T[lang].waLabel[k]) el.textContent = T[lang].waLabel[k];
+  });
+  // WA links
+  document.querySelectorAll("[data-wa]").forEach(a=>{ a.setAttribute("href", waLink(a.getAttribute("data-wa"))); });
+  // lang buttons
+  document.querySelectorAll(".langsw button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
+  renderStages();
+  renderFaqs();
+}
+
+/* init */
+document.getElementById("yr").textContent = new Date().getFullYear();
+document.querySelectorAll(".langsw button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+applyLang("en");
+
+/* starfield */
+(function(){
+  const box = document.querySelector(".stars");
+  let html="";
+  for(let i=0;i<46;i++){
+    const s=(Math.random()*2+1).toFixed(1);
+    html+=`<i style="left:${(Math.random()*100).toFixed(1)}%;top:${(Math.random()*100).toFixed(1)}%;width:${s}px;height:${s}px;animation-delay:${(Math.random()*4).toFixed(1)}s"></i>`;
+  }
+  box.innerHTML=html;
+})();
+
+/* mobile menu */
+const hamb=document.querySelector(".hamb"), mm=document.querySelector(".mobile-menu");
+hamb.addEventListener("click",()=>{const o=mm.classList.toggle("open");hamb.setAttribute("aria-expanded",o)});
+mm.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mm.classList.remove("open");hamb.setAttribute("aria-expanded","false")}));
+
+/* reveal on scroll */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
