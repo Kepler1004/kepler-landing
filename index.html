@@ -122,8 +122,15 @@
   .empathy-copy h2{font-size:clamp(1.8rem,3.6vw,2.7rem)}
   .empathy-copy .need{margin-top:22px;padding:18px 22px;background:var(--mist);border-left:3px solid var(--kepler);border-radius:0 12px 12px 0;color:var(--text-soft);font-size:1rem}
   .empathy-copy .msg{margin-top:24px;font-size:1.08rem;color:var(--text)}
+  figure.photo{margin:0}
+  figure.photo figcaption{
+    margin-top:12px;font-size:.84rem;color:var(--text-soft);
+    display:flex;align-items:center;gap:8px;
+  }
+  figure.photo figcaption::before{content:"";width:16px;height:1px;background:var(--kepler);flex:none}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
   .photo-slot{
-    aspect-ratio:4/3;border-radius:var(--radius);
+    aspect-ratio:3/2;border-radius:var(--radius);
     background:linear-gradient(135deg,var(--ink) 0%,var(--kepler) 130%);
     color:var(--on-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
     text-align:center;padding:24px;position:relative;overflow:hidden;
@@ -380,11 +387,14 @@
       <div class="need" data-i18n="empathy.need">A smooth entry into the KSSR/KSSM system — with a deep, unshakeable understanding of the syllabus that delivers top exam performance, without the stress of burnout.</div>
       <p class="msg" data-i18n="empathy.msg">At Kepler Academy, our students don't just memorise the syllabus; they grasp the “why” behind every concept. The result is verified progress, visible confidence in the classroom, and a genuine love for learning that goes far beyond report-card grades.</p>
     </div>
-    <div class="photo-slot reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-      <span class="tag" data-i18n="photo.title">Your students, front & centre</span>
-      <small data-i18n="photo.note">Drop a real Kepler photo here — e.g. students holding their result certificates from the content guide.</small>
-    </div>
+    <figure class="photo reveal">
+      <div class="photo-slot">
+        <img src="images/campus.webp"
+             alt="Kepler Academy campus building"
+             width="326" height="216" loading="lazy" decoding="async">
+      </div>
+      <figcaption data-i18n="photo.caption">Kepler Academy campus</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -617,7 +627,7 @@ const T = {
     "empathy.heading":"From “studying for exams” to “mastering for life”.",
     "empathy.need":"A smooth entry into the KSSR/KSSM system — with a deep, unshakeable understanding of the syllabus that delivers top exam performance, without the stress of burnout.",
     "empathy.msg":"At Kepler Academy, our students don't just memorise the syllabus; they grasp the “why” behind every concept. The result is verified progress, visible confidence in the classroom, and a genuine love for learning that goes far beyond report-card grades.",
-    "photo.title":"Your students, front & centre","photo.note":"Drop a real Kepler photo here — e.g. students holding their result certificates from the content guide.",
+    "photo.caption":"Kepler Academy campus",
     "curr.eyebrow":"The programme","curr.heading":"A curriculum built on the official KSSR & KSSM framework.",
     "curr.overview":"Fully aligned with the KSSR/KSSM curriculum set by Kementerian Pendidikan Malaysia (MOE). We focus on Higher Order Thinking Skills (HOTS) so students excel in modern exam formats that reward application and analysis — not rote memorisation.",
     "method.m1t":"Intensive small-group learning","method.m1d":"A maximum of 8 students per class ensures every child gets targeted teacher attention.",
@@ -668,7 +678,7 @@ const T = {
     "empathy.heading":"Daripada “belajar untuk peperiksaan” kepada “menguasai untuk kehidupan”.",
     "empathy.need":"Kemasukan lancar ke sistem KSSR/KSSM — dengan kefahaman mendalam terhadap silibus yang menjamin prestasi peperiksaan terbaik, tanpa tekanan burnout.",
     "empathy.msg":"Di Kepler Academy, pelajar kami bukan sekadar menghafal silibus; mereka memahami “mengapa” di sebalik setiap konsep. Hasilnya ialah kemajuan yang disahkan, keyakinan jelas di dalam kelas, dan minat sebenar terhadap pembelajaran yang jauh melangkaui markah kad laporan.",
-    "photo.title":"Pelajar anda, di barisan hadapan","photo.note":"Letak foto sebenar Kepler di sini — cth. pelajar memegang sijil keputusan daripada panduan kandungan.",
+    "photo.caption":"Kampus Kepler Academy",
     "curr.eyebrow":"Program","curr.heading":"Kurikulum dibina atas rangka rasmi KSSR & KSSM.",
     "curr.overview":"Selari sepenuhnya dengan kurikulum KSSR/KSSM oleh Kementerian Pendidikan Malaysia (KPM). Kami menumpukan Kemahiran Berfikir Aras Tinggi (KBAT/HOTS) supaya pelajar cemerlang dalam format peperiksaan moden yang menuntut aplikasi dan analisis — bukan hafalan semata-mata.",
     "method.m1t":"Pembelajaran kumpulan kecil","method.m1d":"Maksimum 8 pelajar sekelas memastikan setiap kanak-kanak mendapat perhatian guru yang fokus.",
@@ -719,7 +729,7 @@ const T = {
     "empathy.heading":"从「为考试而学」到「为人生而精通」。",
     "empathy.need":"顺利衔接 KSSR/KSSM 体系——对教学大纲有深入而稳固的理解，从而在考试中取得优异成绩，却不因压力而倦怠。",
     "empathy.msg":"在 Kepler Academy，我们的学生不只是死记大纲；他们理解每个概念背后的「为什么」。由此带来可验证的进步、课堂上可见的自信，以及远超成绩单的、对学习的真正热爱。",
-    "photo.title":"让学生成为主角","photo.note":"在此放置 Kepler 的真实照片——例如内容指南中手持成绩证书的学生。",
+    "photo.caption":"Kepler Academy 校区",
     "curr.eyebrow":"课程体系","curr.heading":"以官方 KSSR 与 KSSM 框架为基础的课程。",
     "curr.overview":"完全对接马来西亚教育部（KPM）制定的 KSSR/KSSM 课程。我们注重高阶思维能力（HOTS），让学生在注重应用与分析、而非死记硬背的现代考试中脱颖而出。",
     "method.m1t":"小组精学","method.m1d":"每班最多 8 人，确保每位学生都获得教师针对性的关注。",
