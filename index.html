@@ -135,16 +135,15 @@
     content:"";position:absolute;left:0;right:0;bottom:0;height:38%;
     background:linear-gradient(to top,rgba(6,15,36,.55),transparent);pointer-events:none;
   }
-  /* placeholder state — delete .hero-ph block once the photo is in */
-  .hero-ph{
-    position:absolute;inset:0;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:12px;text-align:center;padding:32px;
-    border:2px dashed rgba(255,255,255,.22);border-radius:24px;
+  /* 로고 카드 — 학생 사진이 준비되면 .is-logo 를 지우고 <img>만 교체하면 됩니다 */
+  .hero-photo.is-logo{
+    background:linear-gradient(160deg,#ffffff 0%,#eef4fd 100%);
+    display:flex;align-items:center;justify-content:center;padding:13%;
+    border-color:rgba(255,255,255,.3);
   }
-  .hero-ph svg{width:44px;height:44px;color:var(--gold)}
-  .hero-ph b{font-family:var(--display);font-size:1.1rem;color:#fff;font-weight:600}
-  .hero-ph small{font-size:.84rem;color:var(--on-dark-soft);max-width:22em;line-height:1.5}
-  .hero-ph code{font-family:ui-monospace,monospace;font-size:.8rem;color:var(--gold)}
+  .hero-photo.is-logo img{width:100%;height:auto;object-fit:contain}
+  .hero-photo.is-logo::after{display:none}
+
 
   /* ---------- Empathy ---------- */
   .empathy{background:var(--paper)}
@@ -158,7 +157,7 @@
     display:flex;align-items:center;gap:8px;
   }
   figure.photo figcaption::before{content:"";width:16px;height:1px;background:var(--kepler);flex:none}
-  .photo-slot img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+  .photo-slot img{width:100%;height:100%;object-fit:cover}
   .photo-slot{
     aspect-ratio:3/2;border-radius:var(--radius);
     background:linear-gradient(135deg,var(--ink) 0%,var(--kepler) 130%);
@@ -378,17 +377,8 @@
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg><span data-i18n="hero.stat3">MOE-aligned syllabus</span></div>
       </div>
     </div>
-    <figure class="hero-photo reveal">
-      <!-- 사진 준비되면 아래 hero-ph 블록을 지우고 주석 해제
-      <img src="images/hero-students.webp"
-           alt="Kepler Academy students celebrating their exam results"
-           width="1200" height="1200"> -->
-      <div class="hero-ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <b data-i18n="hero.phTitle">Students photo</b>
-        <small data-i18n="hero.phNote">Place a group photo here — students holding their result certificates works best.</small>
-        <code>1200 × 1200 · WebP</code>
-      </div>
+    <figure class="hero-photo is-logo reveal">
+      <img src="images/kepler-logo.svg" alt="Kepler Academy" width="479" height="351">
     </figure>
   </div>
 </section>
@@ -405,8 +395,8 @@
     <figure class="photo reveal">
       <div class="photo-slot">
         <img src="images/campus.webp"
-             alt="Kepler Academy campus building"
-             width="326" height="216" loading="lazy" decoding="async">
+             alt="Kepler Academy campus — Kepler Academy signage on the shophouse facade"
+             width="1200" height="800" loading="lazy" decoding="async">
       </div>
       <figcaption data-i18n="photo.caption">Kepler Academy campus</figcaption>
     </figure>
@@ -632,7 +622,7 @@ const T = {
     "hero.headline":"Unlocking top-tier academic excellence and a <span class='hl'>seamless journey</span> to higher education.",
     "hero.sub":"Master the KSSR & KSSM syllabus with experienced, professional teachers. Build exam confidence and achieve outstanding results in UASA, SPM & STPM.",
     "hero.cta1":"Book my free academic review","hero.cta2":"Explore the programme",
-    "hero.phTitle":"Students photo","hero.phNote":"Place a group photo here — students holding their result certificates works best.","hero.stat1":"Max 8 students per class","hero.stat2":"KSSR · KSSM · STPM aligned","hero.stat3":"MOE-aligned syllabus",
+    "hero.stat1":"Max 8 students per class","hero.stat2":"KSSR · KSSM · STPM aligned","hero.stat3":"MOE-aligned syllabus",
     "empathy.eyebrow":"Why families choose Kepler",
     "empathy.heading":"From “studying for exams” to “mastering for life”.",
     "empathy.need":"A smooth entry into the KSSR/KSSM system — with a deep, unshakeable understanding of the syllabus that delivers top exam performance, without the stress of burnout.",
@@ -662,7 +652,7 @@ const T = {
     "faq.eyebrow":"Frequently asked questions","faq.heading":"Good questions, straight answers.",
     "final.heading":"Take the first step towards your child's academic brilliance.","final.body":"Don't wait for the next exam to realise a different approach is needed. Start building their confidence today.","final.button":"Book my free academic review",
     "foot.desc":"Malaysian Curriculum tuition — KSSR, KSSM & STPM. Turning “studying for exams” into “mastering for life”.",
-    "foot.explore":"Explore","foot.contact":"Contact","foot.wa":"Chat on WhatsApp","foot.addr":"📍 82B,84B Jalan eko botani 3/2 Iskandar Puteri 79100 Johor, MY","foot.phone":"📞 +60 19 815 3659","foot.rights":"All rights reserved.","foot.tag":"Malaysian Curriculum · KSSR & KSSM",
+    "foot.explore":"Explore","foot.contact":"Contact","foot.wa":"Chat on WhatsApp","foot.addr":"📍 Add your address","foot.phone":"📞 Add your phone","foot.rights":"All rights reserved.","foot.tag":"Malaysian Curriculum · KSSR & KSSM",
     stages:[
       {node:"01",lvl:"Primary · Years 4–6",title:"Foundations",subs:["English","Mathematics","Science"]},
       {node:"02",lvl:"Secondary · Form 3–5",title:"Building depth",subs:["English","Mathematics","Science","Add. Maths","Biology","Chemistry","Physics"]},
@@ -683,7 +673,7 @@ const T = {
     "hero.headline":"Membuka kecemerlangan akademik terbaik dan <span class='hl'>perjalanan lancar</span> ke pengajian tinggi.",
     "hero.sub":"Kuasai silibus KSSR & KSSM bersama guru berpengalaman dan profesional. Bina keyakinan peperiksaan dan capai keputusan cemerlang dalam UASA, SPM & STPM.",
     "hero.cta1":"Tempah semakan akademik percuma","hero.cta2":"Terokai program",
-    "hero.phTitle":"Foto pelajar","hero.phNote":"Letakkan foto kumpulan di sini — pelajar memegang sijil keputusan paling sesuai.","hero.stat1":"Maksimum 8 pelajar sekelas","hero.stat2":"Selari KSSR · KSSM · STPM","hero.stat3":"Silibus selari KPM",
+    "hero.stat1":"Maksimum 8 pelajar sekelas","hero.stat2":"Selari KSSR · KSSM · STPM","hero.stat3":"Silibus selari KPM",
     "empathy.eyebrow":"Mengapa keluarga memilih Kepler",
     "empathy.heading":"Daripada “belajar untuk peperiksaan” kepada “menguasai untuk kehidupan”.",
     "empathy.need":"Kemasukan lancar ke sistem KSSR/KSSM — dengan kefahaman mendalam terhadap silibus yang menjamin prestasi peperiksaan terbaik, tanpa tekanan burnout.",
@@ -734,7 +724,7 @@ const T = {
     "hero.headline":"开启顶尖学术卓越，铺就<span class='hl'>顺畅升学</span>之路。",
     "hero.sub":"在经验丰富的专业教师指导下掌握 KSSR 与 KSSM 教学大纲，建立考试信心，在 UASA、SPM 与 STPM 中取得优异成绩。",
     "hero.cta1":"预约免费学术评估","hero.cta2":"了解课程",
-    "hero.phTitle":"学生照片","hero.phNote":"在此放置合影——手持成绩证书的学生照片效果最佳。","hero.stat1":"每班最多 8 位学生","hero.stat2":"对接 KSSR · KSSM · STPM","hero.stat3":"对接教育部大纲",
+    "hero.stat1":"每班最多 8 位学生","hero.stat2":"对接 KSSR · KSSM · STPM","hero.stat3":"对接教育部大纲",
     "empathy.eyebrow":"家长为何选择 Kepler",
     "empathy.heading":"从「为考试而学」到「为人生而精通」。",
     "empathy.need":"顺利衔接 KSSR/KSSM 体系——对教学大纲有深入而稳固的理解，从而在考试中取得优异成绩，却不因压力而倦怠。",

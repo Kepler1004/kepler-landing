@@ -8,8 +8,8 @@
 index.html        구조 · 디자인 · 문구 (전부 여기)
 images/
   kepler-logo.svg   로고 (원본 .ai에서 벡터 추출 — 무한 확대 가능)
-  campus.webp       학원 외관 사진
-  hero-students.*   히어로 학생 사진 — 아직 없음
+  campus.webp       학원 외관 사진 (1200×800)
+  hero-students.*   히어로 학생 사진 — 아직 없음 (현재 로고 카드로 대체 중)
   og.jpg            공유 미리보기 이미지 (1200×630) — 아직 없음
 ```
 
@@ -95,6 +95,5 @@ git push
 - [ ] `og:image` / `og:url` / `canonical` 의 `https://example.com` → 실제 도메인
 - [ ] `images/og.jpg` (1200×630) 제작
 - [ ] 푸터 주소 · 전화번호
-- [ ] 히어로 학생 사진 (1200×1200) — `index.html` 의 `.hero-ph` 블록 삭제 후 `<img>` 주석 해제
-- [ ] 학원 외관 사진 원본으로 교체 (현재 326×216 — 확대되어 흐릿함)
+- [ ] 히어로에 학생 사진 (1200×1200) — `<figure class="hero-photo is-logo">` 에서 `is-logo` 삭제 후 `<img src>` 를 사진으로 교체
 - [ ] Google Analytics / Meta Pixel (광고 집행 시)
