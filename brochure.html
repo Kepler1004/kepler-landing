@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Programme Brochure — Kepler Academy</title>
+<meta name="robots" content="index, follow" />
+<meta name="description" content="Kepler Academy Malaysian Curriculum programme brochure — KSSR, KSSM, SPM & STPM." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#070d20;
+    --navy-800:#0c1533;
+    --navy-700:#131f47;
+    --line:rgba(255,255,255,.10);
+    --ink:#ffffff;
+    --muted:#9fadc9;
+    --orange:#f08322;
+    --orange-soft:rgba(240,131,34,.14);
+    --radius:16px;
+    --wrap:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+    background:
+      radial-gradient(1200px 600px at 70% -10%, #16224d 0%, transparent 60%),
+      var(--navy-900);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+  /* ---------- top bar ---------- */
+  .bar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(7,13,32,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar-in{
+    max-width:var(--wrap);margin:0 auto;padding:12px 20px;
+    display:flex;align-items:center;gap:16px;justify-content:space-between;
+  }
+  .back{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.9rem;font-weight:700;color:var(--muted);
+    text-decoration:none;padding:9px 14px;border-radius:999px;
+    border:1px solid var(--line);transition:.18s;
+  }
+  .back:hover{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.05)}
+  .bar-logo{height:26px;width:auto;display:block;
+    background:#fff;border-radius:6px;padding:4px 8px}
+  .bar-actions{display:flex;align-items:center;gap:8px}
+
+  .langs{display:flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{
+    background:none;border:0;color:var(--muted);cursor:pointer;
+    font:inherit;font-size:.78rem;font-weight:700;
+    padding:5px 10px;border-radius:999px;transition:.15s;
+  }
+  .langs button[aria-pressed="true"]{background:var(--orange);color:#1a0e02}
+  .langs button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+  /* ---------- header ---------- */
+  header.head{padding:44px 0 28px}
+  .eyebrow{
+    font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--orange);margin-bottom:12px;
+  }
+  h1{font-size:clamp(1.75rem,4.5vw,2.75rem);line-height:1.15;letter-spacing:-.02em;font-weight:800}
+  .sub{color:var(--muted);margin-top:12px;max-width:60ch;line-height:1.6;font-size:1rem}
+  .head-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:12px 20px;border-radius:999px;
+    font-weight:800;font-size:.95rem;text-decoration:none;
+    border:1px solid var(--line);color:var(--ink);transition:.18s;
+  }
+  .btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.28)}
+  .btn-primary{
+    background:var(--orange);color:#1a0e02;border-color:transparent;
+    box-shadow:0 8px 28px rgba(240,131,34,.32);
+  }
+  .btn-primary:hover{background:#ff9436;border-color:transparent}
+  .btn:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* ---------- viewer ---------- */
+  .viewer{padding:8px 0 56px}
+  .pages{display:flex;flex-direction:column;gap:20px}
+  .page{
+    background:#fff;border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 18px 50px rgba(0,0,0,.45);
+    position:relative;
+  }
+  .page img{display:block;width:100%;height:auto}
+  .page-no{
+    position:absolute;left:12px;bottom:12px;
+    background:rgba(7,13,32,.78);color:#fff;
+    font-size:.7rem;font-weight:700;letter-spacing:.08em;
+    padding:4px 9px;border-radius:999px;backdrop-filter:blur(4px);
+  }
+  .frame{
+    width:100%;height:min(78vh,900px);border:0;
+    border-radius:var(--radius);background:#fff;
+    box-shadow:0 18px 50px rgba(0,0,0,.45);
+  }
+  .note{
+    margin-top:14px;color:var(--muted);font-size:.85rem;text-align:center;
+  }
+
+  /* mobile: no inline pdf */
+  .mobile-card{
+    display:none;
+    border:1px dashed rgba(255,255,255,.22);
+    border-radius:var(--radius);
+    padding:32px 22px;text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);
+  }
+  .mobile-card p{color:var(--muted);margin:10px 0 20px;line-height:1.6;font-size:.95rem}
+
+  /* ---------- bottom return ---------- */
+  .end{
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg,transparent,rgba(240,131,34,.06));
+    padding:52px 0 64px;text-align:center;
+  }
+  .end h2{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;letter-spacing:-.01em}
+  .end p{color:var(--muted);margin:10px auto 24px;max-width:46ch;line-height:1.6}
+  .end-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:22px 0;text-align:center;color:var(--muted);font-size:.8rem}
+
+  @media (max-width:640px){
+    .frame{display:none}
+    .mobile-card{display:block}
+    .bar-in{padding:10px 14px;gap:8px}
+    .back span{display:none}
+    .back{padding:9px}
+    header.head{padding:32px 0 22px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="back" href="index.html" data-i18n="nav.back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Back to main page</span>
+    </a>
+    <img class="bar-logo" src="images/kepler-logo.svg" alt="Kepler Academy" />
+    <div class="bar-actions">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ms" aria-pressed="false">BM</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="broch.eyebrow">Malaysian Curriculum</div>
+    <h1 data-i18n="broch.title">Programme brochure</h1>
+    <p class="sub" data-i18n="broch.sub">Everything about the KSSR &amp; KSSM programme — subjects, class sizes, schedule and fees — in one document.</p>
+    <div class="head-actions">
+      <a class="btn btn-primary" id="waBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2Zm5.8 14.16c-.24.68-1.4 1.3-1.94 1.34-.5.05-.98.23-3.3-.7-2.78-1.1-4.53-3.98-4.67-4.17-.13-.19-1.1-1.48-1.1-2.82 0-1.34.7-2 .95-2.27a1 1 0 0 1 .72-.34h.52c.16 0 .39-.06.6.46.24.58.8 2 .87 2.14.07.15.12.31.02.5-.1.19-.15.3-.29.47l-.44.5c-.14.14-.29.3-.12.59.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.28.14.45.12.62-.07.17-.2.71-.83.9-1.11.19-.29.38-.24.64-.15.26.1 1.65.78 1.94.92.28.15.47.22.54.34.07.12.07.68-.17 1.35Z"/></svg>
+        <span data-i18n="broch.cta">Ask about this programme</span>
+      </a>
+      <a class="btn" id="dlBtn" href="brochure/kepler-programme.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span data-i18n="broch.download">Download PDF</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="viewer">
+  <div class="wrap">
+    <div class="pages" id="pages"><!-- filled by JS --></div>
+    <p class="note" id="note" data-i18n="broch.note">Scroll to read all pages.</p>
+  </div>
+</main>
+
+<section class="end">
+  <div class="wrap">
+    <h2 data-i18n="end.title">Seen enough?</h2>
+    <p data-i18n="end.sub">Tell us your child's year and subjects, and we'll suggest where to start.</p>
+    <div class="end-actions">
+      <a class="btn btn-primary" id="waBtn2" href="#" target="_blank" rel="noopener">
+        <span data-i18n="broch.cta">Ask about this programme</span>
+      </a>
+      <a class="btn" href="index.html" data-i18n="end.back">Back to main page</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Kepler Academy</div>
+</footer>
+
+<script>
+/* =========================================================================
+   1) SET THESE TWO THINGS
+   ========================================================================= */
+
+// Same number as index.html. Digits only, no + and no spaces.
+const WHATSAPP_NUMBER = "60198153659";
+
+// Brochure page images. Put them in  brochure/  and list them in order.
+// Leave the array EMPTY to fall back to the PDF file below.
+const PAGES = [
+  // "brochure/page-1.webp",
+  // "brochure/page-2.webp",
+  // "brochure/page-3.webp",
+];
+
+const PDF_FILE = "brochure/kepler-programme.pdf";
+
+/* =========================================================================
+   2) Translations
+   ========================================================================= */
+const T = {
+  en: {
+    "nav.back": "Back to main page",
+    "broch.eyebrow": "Malaysian Curriculum",
+    "broch.title": "Programme brochure",
+    "broch.sub": "Everything about the KSSR & KSSM programme — subjects, class sizes, schedule and fees — in one document.",
+    "broch.cta": "Ask about this programme",
+    "broch.download": "Download PDF",
+    "broch.note": "Scroll to read all pages.",
+    "broch.mobileTitle": "Open the brochure",
+    "broch.mobileBody": "Your phone browser can't show a PDF on the page. Tap below to open it full screen.",
+    "broch.mobileBtn": "Open the PDF",
+    "end.title": "Seen enough?",
+    "end.sub": "Tell us your child's year and subjects, and we'll suggest where to start.",
+    "end.back": "Back to main page",
+    "wa.msg": "Hi Kepler Academy, I just read the programme brochure and I'd like to know more."
+  },
+  ms: {
+    "nav.back": "Kembali ke laman utama",
+    "broch.eyebrow": "Kurikulum Malaysia",
+    "broch.title": "Brosur program",
+    "broch.sub": "Semua tentang program KSSR & KSSM — subjek, saiz kelas, jadual dan yuran — dalam satu dokumen.",
+    "broch.cta": "Tanya tentang program ini",
+    "broch.download": "Muat turun PDF",
+    "broch.note": "Skrol untuk membaca semua halaman.",
+    "broch.mobileTitle": "Buka brosur",
+    "broch.mobileBody": "Pelayar telefon anda tidak boleh memaparkan PDF di halaman ini. Tekan di bawah untuk membukanya skrin penuh.",
+    "broch.mobileBtn": "Buka PDF",
+    "end.title": "Sudah cukup melihat?",
+    "end.sub": "Beritahu kami tahun dan subjek anak anda, kami akan cadangkan titik permulaan.",
+    "end.back": "Kembali ke laman utama",
+    "wa.msg": "Hai Kepler Academy, saya baru membaca brosur program dan ingin tahu dengan lebih lanjut."
+  },
+  zh: {
+    "nav.back": "返回首页",
+    "broch.eyebrow": "马来西亚课程",
+    "broch.title": "课程手册",
+    "broch.sub": "KSSR 与 KSSM 课程的完整资料——科目、班级人数、时间表与学费，全在一份文件里。",
+    "broch.cta": "咨询这个课程",
+    "broch.download": "下载 PDF",
+    "broch.note": "向下滚动即可阅读全部页面。",
+    "broch.mobileTitle": "打开手册",
+    "broch.mobileBody": "手机浏览器无法在页面内显示 PDF。点击下方全屏打开。",
+    "broch.mobileBtn": "打开 PDF",
+    "end.title": "看完了吗？",
+    "end.sub": "告诉我们孩子的年级与科目，我们会建议合适的起点。",
+    "end.back": "返回首页",
+    "wa.msg": "你好 Kepler Academy，我刚看完课程手册，想了解更多。"
+  }
+};
+
+/* =========================================================================
+   3) Behaviour — no need to edit below
+   ========================================================================= */
+const params = new URLSearchParams(location.search);
+let lang = params.get("lang");
+if (!T[lang]) lang = localStorage.getItem("kepler-lang") || localStorage.getItem("lang");
+if (!T[lang]) lang = "en";
+
+function applyLang(l){
+  lang = T[l] ? l : "en";
+  document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = T[lang][el.getAttribute("data-i18n")];
+    if (v) el.textContent = v;
+  });
+  document.querySelectorAll(".langs button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.lang === lang))
+  );
+  const href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(T[lang]["wa.msg"]);
+  document.getElementById("waBtn").href = href;
+  document.getElementById("waBtn2").href = href;
+  try { localStorage.setItem("kepler-lang", lang); } catch(e){}
+}
+
+document.querySelectorAll(".langs button").forEach(b =>
+  b.addEventListener("click", () => applyLang(b.dataset.lang))
+);
+
+function renderPages(){
+  const box = document.getElementById("pages");
+  const note = document.getElementById("note");
+
+  if (PAGES.length) {
+    box.innerHTML = PAGES.map((src, i) => `
+      <figure class="page">
+        <img src="${src}" alt="Brochure page ${i+1}" loading="${i < 2 ? "eager" : "lazy"}" decoding="async">
+        <figcaption class="page-no">${i+1} / ${PAGES.length}</figcaption>
+      </figure>`).join("");
+    return;
+  }
+
+  // No page images — embed the PDF on desktop, offer a full-screen open on mobile.
+  box.innerHTML = `
+    <iframe class="frame" src="${PDF_FILE}#view=FitH" title="Kepler Academy programme brochure"></iframe>
+    <div class="mobile-card">
+      <h2 data-i18n="broch.mobileTitle" style="font-size:1.15rem">Open the brochure</h2>
+      <p data-i18n="broch.mobileBody">Your phone browser can't show a PDF on the page. Tap below to open it full screen.</p>
+      <a class="btn btn-primary" href="${PDF_FILE}" target="_blank" rel="noopener" data-i18n="broch.mobileBtn">Open the PDF</a>
+    </div>`;
+  note.style.display = "none";
+}
+
+document.getElementById("dlBtn").href = PDF_FILE;
+document.getElementById("yr").textContent = new Date().getFullYear();
+renderPages();
+applyLang(lang);
+</script>
+</body>
+</html>

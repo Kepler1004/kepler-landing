@@ -318,6 +318,23 @@
     *{animation:none!important;scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
   }
+  .brochure-link{
+  display:inline-flex; align-items:center; gap:9px;
+  margin:16px auto 0;
+  padding:11px 20px; border-radius:999px;
+  font-size:.92rem; font-weight:700; text-decoration:none;
+  color:#fff; border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.05);
+  transition:.18s;
+}
+.brochure-link:hover{
+  background:rgba(240,131,34,.14);
+  border-color:rgba(240,131,34,.55);
+  color:#fff;
+}
+.brochure-link:focus-visible{ outline:2px solid #f08322; outline-offset:3px; }
+.brochure-link svg{ width:17px; height:17px; flex:none; color:#f08322; }
+.hero-photo + .brochure-link{ display:flex; width:fit-content; }
 </style>
 </head>
 <body>
@@ -378,6 +395,10 @@
       </div>
     </div>
     <figure class="hero-photo is-logo reveal">
+      <a class="brochure-link reveal" href="brochure.html" data-i18n="hero.brochure">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+  <span>View the programme brochure</span>
+</a>
       <img src="images/kepler-logo.svg" alt="Kepler Academy" width="479" height="351">
     </figure>
   </div>
@@ -624,6 +645,7 @@ const T = {
     "hero.sub":"Master the KSSR & KSSM syllabus with experienced, professional teachers. Build exam confidence and achieve outstanding results in UASA, SPM & STPM.",
     "hero.cta1":"Book my Free Level Test","hero.cta2":"Explore the programme",
     "hero.stat1":"Max 8 students per class","hero.stat2":"KSSR · KSSM · STPM aligned","hero.stat3":"MOE-aligned syllabus",
+    "hero.brochure": "View the programme brochure",
     "empathy.eyebrow":"Why families choose Kepler",
     "empathy.heading":"From “studying for exams” to “mastering for life”.",
     "empathy.need":"A smooth entry into the KSSR/KSSM system — with a deep, unshakeable understanding of the syllabus that delivers top exam performance, without the stress of burnout.",
@@ -675,6 +697,7 @@ const T = {
     "hero.sub":"Kuasai silibus KSSR & KSSM bersama guru berpengalaman dan profesional. Bina keyakinan peperiksaan dan capai keputusan cemerlang dalam UASA, SPM & STPM.",
     "hero.cta1":"Tempah Ujian Tahap Percuma","hero.cta2":"Terokai program",
     "hero.stat1":"Maksimum 8 pelajar sekelas","hero.stat2":"Selari KSSR · KSSM · STPM","hero.stat3":"Silibus selari KPM",
+    "hero.brochure": "Lihat brosur program",
     "empathy.eyebrow":"Mengapa keluarga memilih Kepler",
     "empathy.heading":"Daripada “belajar untuk peperiksaan” kepada “menguasai untuk kehidupan”.",
     "empathy.need":"Kemasukan lancar ke sistem KSSR/KSSM — dengan kefahaman mendalam terhadap silibus yang menjamin prestasi peperiksaan terbaik, tanpa tekanan burnout.",
@@ -726,6 +749,7 @@ const T = {
     "hero.sub":"在经验丰富的专业教师指导下掌握 KSSR 与 KSSM 教学大纲，建立考试信心，在 UASA、SPM 与 STPM 中取得优异成绩。",
     "hero.cta1":"预约免费程度测试","hero.cta2":"了解课程",
     "hero.stat1":"每班最多 8 位学生","hero.stat2":"对接 KSSR · KSSM · STPM","hero.stat3":"对接教育部大纲",
+    "hero.brochure": "查看课程手册",
     "empathy.eyebrow":"家长为何选择 Kepler",
     "empathy.heading":"从「为考试而学」到「为人生而精通」。",
     "empathy.need":"顺利衔接 KSSR/KSSM 体系——对教学大纲有深入而稳固的理解，从而在考试中取得优异成绩，却不因压力而倦怠。",
